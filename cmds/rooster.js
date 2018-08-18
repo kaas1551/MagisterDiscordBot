@@ -7,7 +7,7 @@ prefix = JSON.parse(fs.readFileSync(path.join(__dirname, "../config.json"))).PRE
 module.exports = {
     needAdminPrivileges: false,
 
-    help: "rooster ophalen, voeg \"morgen\" toe om het rooster van morgen op te halen.",
+    help: `rooster ophalen. Je moet hiervoor uiteraard geregistreerd zijn, gebruik ${prefix}register om je te registreren.\nArgs: \"morgen\" of een dagnaam (zoals \"woensdag\")`,
 
     run: (msg, args) => {
         let dayNames = ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"];
@@ -47,7 +47,7 @@ module.exports = {
 
 
                     let embed = new discord.RichEmbed()
-                        .setTitle(`Rooster ${init} ${lastName} | [${bigObj.magisterSchool.name}]`)
+                        .setTitle(`Rooster  | [${bigObj.magisterSchool.name}]`)
                         .setColor(0x00AE86)
                         .setFooter(new Date().toString())
                         .setThumbnail("https://pubblestorage.blob.core.windows.net/d9c7ad83/content/2017/6/fed03e4c-67e0-46ba-8db9-a99432de167a.jpg")
@@ -93,7 +93,7 @@ module.exports = {
 
                         }
                         let embed = new discord.RichEmbed()
-                            .setTitle(`Rooster ${init} ${lastName} | [${bigObj.magisterSchool.name}]`)
+                            .setTitle(`Rooster  | [${bigObj.magisterSchool.name}]`)
                             .setColor(0x00AE86)
                             .setFooter(date.toString())
                             .addField(`${dag}\n`,
@@ -123,7 +123,7 @@ module.exports = {
                         }
                     }
                     let embed = new discord.RichEmbed()
-                        .setTitle(`Rooster ${init} ${lastName} | [${bigObj.magisterSchool.name}]`)
+                        .setTitle(`Rooster  | [${bigObj.magisterSchool.name}]`)
                         .setColor(0x00AE86)
                         .setFooter(new Date().toString())
                         .addField("Vandaag\n",

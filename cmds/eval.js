@@ -5,7 +5,7 @@ const discord = require("discord.js");
 prefix = JSON.parse(fs.readFileSync(path.join(__dirname, "../config.json"))).PREFIX;
 module.exports = {
     needAdminPrivileges: true,
-    help: "ecmascript runnen",
+    help: "ES6 runnen, admin-only.",
     run: (msg, args, client) => {
         try {
             let code = msg.content.slice(msg.content.split(" ")[0].length);
