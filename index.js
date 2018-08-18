@@ -7,14 +7,8 @@ config = JSON.parse(require("fs").readFileSync("./config.json"));
 
 
 
-client
-    .on("ready", () => console.log("ready"))
-
-    .on("message", async (msg) => {
-        require("./ev/message.js").handleMessage(msg, client);
-    });
-
 process
+
     .on("uncaughtException", (err) => {
         fs.writeFileSync(`./log/${`${date.toDateString()}-${date.toTimeString().split(" ")[0]}`}`);
         console.log("An error occured, file written to log folder.");
@@ -22,5 +16,16 @@ process
 
 
 
+client
 
-client.login(config.LOGIN_TOKEN);
+    .on("ready", () => console.log("ready"))
+
+    .on("message", async (msg) => {
+        require("./ev/message.js").handleMessage(msg, client);
+    })
+
+    .login(config.LOGIN_TOKEN);
+
+
+
+
